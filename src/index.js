@@ -244,6 +244,7 @@ class Image extends React.Component {
       alt,
       cloudName,
       imageName,
+      loading = 'lazy',
       style = {},
       imgStyle = {},
       placeholderStyle = {},
@@ -354,6 +355,7 @@ class Image extends React.Component {
             <Img
               alt={alt}
               title={title}
+              loading={loading}
               src={`https://res.cloudinary.com/${cloudName}/image/upload/${urlParams}/${this.props.version}/${imageName}`}
               srcSet={srcSet || ''}
               style={imageStyle}
@@ -406,6 +408,7 @@ const fluidObject = PropTypes.shape({
 Image.propTypes = {
   fixed: fixedObject,
   fluid: fluidObject,
+  loading: PropTypes.string,
   urlParams: PropTypes.string,
   fadeIn: PropTypes.bool,
   title: PropTypes.string,
